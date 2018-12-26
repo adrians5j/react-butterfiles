@@ -94,9 +94,9 @@ Note that you don't need to use both callbacks, you can use only one if that's y
 For example, to create a simple file field, you would only need to use the `browseFiles` callback.
 
 ## Selection error types
-If there is a file that does not comply with the rules that were set via props, an `onError` callback will be triggered.
+In selection, if there are one or more files that do not comply with the rules that were set via props, an `onError` callback will be triggered, with all of the errors passed as the first argument.
 
-The following is the list of all error types.
+Every error in the array will have one of the following error types.
 
 | Type                | Description
 | :------------------ | :-------------------
