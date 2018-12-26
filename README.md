@@ -1,13 +1,13 @@
-# react-browse-files
+# react-butterfiles
 
 <p align="center">
-  <a href="https://travis-ci.org/adrian1358/react-browse-files.svg?branch=master">
-    <img alt="Build Status" src="https://travis-ci.org/adrian1358/react-browse-files.svg?branch=master">
+  <a href="https://travis-ci.org/doitadrian/react-butterfiles.svg?branch=master">
+    <img alt="Build Status" src="https://travis-ci.org/doitadrian/react-butterfiles.svg?branch=master">
   </a>
   
-  <img alt="Build Status" src="https://img.shields.io/npm/dw/react-browse-files.svg">
+  <img alt="Build Status" src="https://img.shields.io/npm/dw/react-butterfiles.svg">
   <img alt="Build Status" src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square">  
-  <img alt="Build Status" src="https://img.shields.io/npm/types/react-browse-files.svg">
+  <img alt="Build Status" src="https://img.shields.io/npm/types/react-butterfiles.svg">
     
 </p>
 
@@ -16,19 +16,19 @@ an image gallery field with drag and drop support and preview of selected images
 
 ## Install
 ```
-npm install --save react-browse-files
+npm install --save react-butterfiles
 ```
 
 Or if you prefer yarn: 
 ```
-yarn add react-browse-files
+yarn add react-butterfiles
 ```
 
 ## Quick Example:
 Create a simple upload button that accepts multiple PDF files (max 2MB per file / max 10MB for the whole selection).
 
 ```javascript
-import BrowseFiles from "react-browse-files";
+import BrowseFiles from "react-butterfiles";
 ```
 
 ```javascript
@@ -58,7 +58,7 @@ import BrowseFiles from "react-browse-files";
 </BrowseFiles>
 ```
 
-More examples on https://react-browse-files.netlify.com.
+More examples on https://react-butterfiles.netlify.com.
 
 ## Props
 

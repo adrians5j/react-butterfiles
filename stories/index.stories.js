@@ -7,7 +7,7 @@ import SimpleFileUploadButton from "./SimpleFileUploadButton";
 import FileDndZone from "./FileDndZone";
 import AvatarField from "./AvatarField";
 
-const stories = storiesOf("react-browse-files", module);
+const stories = storiesOf("react-butterfiles", module);
 
 stories.addDecorator(withKnobs);
 

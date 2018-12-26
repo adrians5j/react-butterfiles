@@ -1,18 +1,18 @@
 {
-  "name": "react-browse-files",
-  "version": "0.0.0-semantically-released",
+  "name": "react-butterfiles",
+  "version": "0.0.0-development",
   "description": "A component for building file upload fields of any type.",
   "main": "dist/BrowseFiles.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/adrian1358/react-browse-files.git"
+    "url": "https://github.com/doitadrian/react-butterfiles.git"
   },
   "author": "Adrian Smijulj",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/adrian1358/react-browse-files/issues"
+    "url": "https://github.com/doitadrian/react-butterfiles/issues"
   },
-  "homepage": "https://github.com/adrian1358/react-browse-files#readme",
+  "homepage": "https://github.com/doitadrian/react-butterfiles#readme",
   "devDependencies": {
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.2.2",
@@ -53,7 +53,8 @@
     "test:jest": "echo \"No Jest tests yet...\"",
     "test:cypress": "echo \"No Cypress tests yet...\"",
     "test:ci": "npm run build && npm run test",
-    "release": "npm run build && npx semantic-release"
+    "release": "npm run build && npx semantic-release",
+    "semantic-release": "semantic-release"
   },
   "config": {
     "commitizen": {
