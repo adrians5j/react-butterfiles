@@ -1,4 +1,4 @@
-# react-butterfiles
+# 🦋 react-butterfiles
 
 <p align="center">
   <a href="https://travis-ci.org/doitadrian/react-butterfiles.svg?branch=master">
