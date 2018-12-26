@@ -68,8 +68,6 @@ More examples on https://react-butterfiles.netlify.com.
 
 ## Props
 
-Component takes the following props:
-
 | Prop                | Type                                    | Default   | Description                                                                                                           |
 | :------------------ | :-------------------------------------- | :-------- | :-------------------------------------------------------------------------------------------------------------------- |
 | `accept`              | `array`                                   | `[]`        | Defines which file types will be accepted. Example: `["application/pdf"]`.                                            |
