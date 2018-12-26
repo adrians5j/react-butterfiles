@@ -31,11 +31,11 @@ and drop is not convenient). Multiple PDF / JPG files are accepted, but with the
  - max 2MB in size per file
  - max 10MB in size for the whole selection 
 
-```
+```javascript
 import Files from "react-butterfiles";
 ```
 
-```
+```javascript
 <Files
     multiple={true} 
     maxSize="2mb"
