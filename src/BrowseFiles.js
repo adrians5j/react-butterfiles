@@ -20,6 +20,7 @@ export type FileError = {
         | "unsupportedFileType"
         | "maxSizeExceeded"
         | "multipleMaxSizeExceeded"
+        | "multipleMaxCountExceeded"
         | "multipleNotAllowed",
     file?: SelectedFile
 };
@@ -39,6 +40,7 @@ export type Props = {
     multiple: boolean,
     maxSize: string,
     multipleMaxSize: string,
+    multipleMaxCount: ?number,
     convertToBase64: boolean,
     children: RenderPropParams => React.Node,
     onSuccess?: (files: Array<SelectedFile>) => void,
@@ -51,6 +53,7 @@ class BrowseFiles extends React.Component<Props> {
         multiple: false,
         maxSize: "2mb",
         multipleMaxSize: "10mb",
+        multipleMaxCount: null,
         convertToBase64: false
     };
 
@@ -63,7 +66,7 @@ class BrowseFiles extends React.Component<Props> {
     }
 
     validateFiles(files: Array<SelectedFile>): Array<Object> {
-        const { multiple, multipleMaxSize, accept, maxSize } = this.props;
+        const { multiple, multipleMaxSize, multipleMaxCount, accept, maxSize } = this.props;
         if (files.length === 0) {
             return [];
         }
@@ -106,13 +109,24 @@ class BrowseFiles extends React.Component<Props> {
             }
         }
 
-        if (multiple && multipleMaxSize && multipleFileSize > bytes(multipleMaxSize)) {
-            errors.push({
-                id: generateId(),
-                type: "multipleMaxSizeExceeded",
-                multipleFileSize,
-                multipleMaxSize: bytes(multipleMaxSize)
-            });
+        if (multiple) {
+            if (multipleMaxSize && multipleFileSize > bytes(multipleMaxSize)) {
+                errors.push({
+                    id: generateId(),
+                    type: "multipleMaxSizeExceeded",
+                    multipleFileSize,
+                    multipleMaxSize: bytes(multipleMaxSize)
+                });
+            }
+
+            if (multipleMaxCount && files.length > multipleMaxCount) {
+                errors.push({
+                    id: generateId(),
+                    type: "multipleMaxCountExceeded",
+                    multipleCount: files.length,
+                    multipleMaxCount
+                });
+            }
         }
 
         return errors;
