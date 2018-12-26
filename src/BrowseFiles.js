@@ -26,8 +26,8 @@ export type FileError = {
 };
 
 export type RenderPropParams = {
-    browseFiles: Function,
-    getDropZoneProps: Function
+    browseFiles: BrowseFilesParams => void,
+    getDropZoneProps: (additionalProps: ?Object) => Object
 };
 
 export type BrowseFilesParams = {
