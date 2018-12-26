@@ -90,7 +90,7 @@ Render prop gives you access to two callbacks:
 | `browseFiles`       | `BrowseFilesParams => void`             | Once executed, file browser will be shown. Useful for file upload buttons. The callback can also accept custom `onSuccess` and `onError` callbacks, that will override the main ones. |
 | `getDropZoneProps`  | `(additionalProps: ?Object) => Object`  | Props that need to be spread to a drop zone. You can add additional props if needed. |
 
-Note that you don't need to use both callbacks, you can use only one if that's your requirement 
+Note that you don't need to use both callbacks, you can use only one if that's your requirement. 
 For example, to create a simple file field, you would only need to use the `browseFiles` callback.
 
 ## Selection error types
