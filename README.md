@@ -47,7 +47,7 @@ import Files from "react-butterfiles";
 >
     {({ browseFiles, getDropZoneProps }) => (
         <>
-            <div {...getDropZoneProps({className: "myDropZone"})}/>
+            <div {...getDropZoneProps({ className: "myDropZone" })}/>
             <button onClick={browseFiles}>Select files...</button>
             <ol>
                 {this.state.files.map(file => (
