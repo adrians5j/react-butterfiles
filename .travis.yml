@@ -1,0 +1,22 @@
+sudo: false
+language: node_js
+node_js: 8
+
+cache:
+  directories:
+    - ~/.npm
+    - ~/.cache
+
+notifications:
+  email: false
+
+jobs:
+  include:
+    - stage: release
+      node_js: lts/*
+      script: npm run test:ci
+      deploy:
+        provider: script
+        skip_cleanup: true
+        script:
+          - npm run release
