@@ -1,6 +1,6 @@
 // @flow
 import React from "react";
-import BrowseFiles from "./../src/BrowseFiles";
+import Files from "./../src/Files";
 import Story from "./Story";
 import getPropsKnobs from "./utils/getPropsKnobs";
 import ImageCropper from "./utils/ImageCropper";
@@ -48,7 +48,7 @@ class AvatarField extends React.Component<Props, State> {
                     after the selection was made.
                 </description>
                 <example>
-                    <BrowseFiles
+                    <Files
                         accept={["image/jpg", "image/jpeg", "image/png"]}
                         convertToBase64
                         {...props}
@@ -107,7 +107,7 @@ class AvatarField extends React.Component<Props, State> {
                                 )}
                             </>
                         )}
-                    </BrowseFiles>
+                    </Files>
                 </example>
                 <code>{code(props)}</code>
             </Story>
@@ -116,7 +116,7 @@ class AvatarField extends React.Component<Props, State> {
 }
 
 const code = props => /* React */ `
-<BrowseFiles
+<Files
     accept={["image/jpg", "image/jpeg", "image/png"]}
     convertToBase64
     ${props}
@@ -174,7 +174,7 @@ const code = props => /* React */ `
             )}
         </>
     )}
-</BrowseFiles>
+</Files>
 `;
 
 export default AvatarField;

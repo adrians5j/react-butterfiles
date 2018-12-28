@@ -1,6 +1,6 @@
 // @flow
 import React from "react";
-import BrowseFiles from "./../src/BrowseFiles";
+import Files from "./../src/Files";
 import Story from "./Story";
 import getPropsKnobs from "./utils/getPropsKnobs";
 
@@ -23,7 +23,7 @@ class SimpleFileUploadButton extends React.Component<Props, State> {
                 <title>Simple file upload button</title>
                 <description>Click the button to open file browser.</description>
                 <example>
-                    <BrowseFiles
+                    <Files
                         {...props}
                         onSuccess={files => this.setState({ files })}
                         onError={errors => this.setState({ errors })}
@@ -43,7 +43,7 @@ class SimpleFileUploadButton extends React.Component<Props, State> {
                                 </ol>
                             </>
                         )}
-                    </BrowseFiles>
+                    </Files>
                 </example>
                 <code>{code(props)}</code>
             </Story>
@@ -52,7 +52,7 @@ class SimpleFileUploadButton extends React.Component<Props, State> {
 }
 
 const code = props => /* React */ `
-<BrowseFiles
+<Files
     ${props}
     onSuccess={files => this.setState({ files })}
     onError={errors => this.setState({ errors })}
@@ -72,7 +72,7 @@ const code = props => /* React */ `
             </ol>
         </>
     )}
-</BrowseFiles>
+</Files>
 `;
 
 export default SimpleFileUploadButton;

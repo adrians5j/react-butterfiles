@@ -1,6 +1,6 @@
 // @flow
 import React from "react";
-import BrowseFiles from "./../src/BrowseFiles";
+import Files from "./../src/Files";
 import Story from "./Story";
 import getPropsKnobs from "./utils/getPropsKnobs";
 
@@ -34,7 +34,7 @@ class FileDndZone extends React.Component<Props, State> {
                     by clicking on a button.
                 </description>
                 <example>
-                    <BrowseFiles
+                    <Files
                         {...props}
                         onSuccess={this.handleSuccess}
                         onError={this.handleErrors}
@@ -76,7 +76,7 @@ class FileDndZone extends React.Component<Props, State> {
                                 </div>
                             );
                         }}
-                    </BrowseFiles>
+                    </Files>
                 </example>
                 <code>{code(props)}</code>
             </Story>
@@ -85,7 +85,7 @@ class FileDndZone extends React.Component<Props, State> {
 }
 
 const code = props => /* React */ `
-<BrowseFiles
+<Files
     ${props}
     onSuccess={this.handleSuccess}
     onError={this.handleErrors}
@@ -127,7 +127,7 @@ const code = props => /* React */ `
             </div>
         );
     }}
-</BrowseFiles>
+</Files>
 `;
 
 export default FileDndZone;
