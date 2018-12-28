@@ -47,7 +47,7 @@ export type Props = {
     onError?: (errors: Array<FileError>, files: Array<SelectedFile>) => void
 };
 
-class BrowseFiles extends React.Component<Props> {
+class Files extends React.Component<Props> {
     static defaultProps = {
         accept: [],
         multiple: false,
@@ -219,4 +219,4 @@ class BrowseFiles extends React.Component<Props> {
     }
 }
 
-export default BrowseFiles;
+export default Files;

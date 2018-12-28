@@ -61,7 +61,7 @@ import Files from "react-butterfiles";
             </ol>
         </>
     )}
-</BrowseFiles>
+</Files>
 ```
 
 More examples on https://react-butterfiles.netlify.com.
@@ -76,7 +76,7 @@ More examples on https://react-butterfiles.netlify.com.
 | `multipleMaxSize`     | `string`                                  | `"10mb"`    | Useful only if `multiple` prop is set to `true`. Defines max. file size of all selected files.                      |
 | `multipleMaxCount`    | `number`                                  | `null`    | Useful only if `multiple` prop is set to `true`. Defines max. allowed selected files.                    |
 | `convertToBase64`     | `boolean`                                 | `false`     | If `true`, selected files will also be converted to baser64 format (useful when working with images / thumbnails).    |
-| `onSuccess`           | `(files: Array<BrowseFilesFile>) => void` | `undefined` | Callback that will get executed once a valid file selection has been made (via browse files dialog or drag and drop). |
+| `onSuccess`           | `(files: Array<SelectedFile>) => void` | `undefined` | Callback that will get executed once a valid file selection has been made (via browse files dialog or drag and drop). |
 | `onError`             | `(errors: Array<FileError>) => void`      | `undefined` | Callback that will get executed once an invalid file selection has been made. More info about possible errors below.  |
 
 ### Render (children) prop
