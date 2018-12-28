@@ -16,6 +16,9 @@ const gallery = css({
     width: 500,
     minHeight: 500,
     border: "1px lightgray dashed",
+    "&.dragging": {
+        backgroundColor: "#80808008"
+    },
     ul: {
         padding: 10,
         margin: 0
@@ -95,49 +98,53 @@ class ImageGallery extends React.Component<Props, State> {
                                 this.handleFiles(files, this.state.files.length)
                             }
                         >
-                            {({ browseFiles, getDropZoneProps }) => {
-                                const images = this.state.files;
-
-                                return (
-                                    <div {...getDropZoneProps({ className: gallery })}>
-                                        <ul>
-                                            {images.map((image, index) => (
-                                                <li
-                                                    key={index}
-                                                    onClick={() => {
-                                                        browseFiles({
-                                                            onErrors: this.handleErrors,
-                                                            onSuccess: files => {
-                                                                // Will insert images after the clicked image.
-                                                                this.handleFiles(files, index + 1);
-                                                            }
-                                                        });
-                                                    }}
-                                                >
-                                                    <img src={image.src} />
-                                                </li>
-                                            ))}
+                            {({ browseFiles, getDropZoneProps }) => (
+                                <div
+                                    {...getDropZoneProps({
+                                        className:
+                                            gallery + (this.state.dragging ? " dragging" : ""),
+                                        onDragEnter: () => this.setState({ dragging: true }),
+                                        onDragLeave: () => this.setState({ dragging: false }),
+                                        onDrop: () => this.setState({ dragging: false })
+                                    })}
+                                >
+                                    <ul>
+                                        {this.state.files.map((image, index) => (
                                             <li
-                                                className="new-image"
+                                                key={index}
                                                 onClick={() => {
                                                     browseFiles({
                                                         onErrors: this.handleErrors,
                                                         onSuccess: files => {
-                                                            // Will append images at the end of the list.
-                                                            this.handleFiles(
-                                                                files,
-                                                                this.state.files.length
-                                                            );
+                                                            // Will insert images after the clicked image.
+                                                            this.handleFiles(files, index + 1);
                                                         }
                                                     });
                                                 }}
                                             >
-                                                <div>+</div>
+                                                <img src={image.src} />
                                             </li>
-                                        </ul>
-                                    </div>
-                                );
-                            }}
+                                        ))}
+                                        <li
+                                            className="new-image"
+                                            onClick={() => {
+                                                browseFiles({
+                                                    onErrors: this.handleErrors,
+                                                    onSuccess: files => {
+                                                        // Will append images at the end of the list.
+                                                        this.handleFiles(
+                                                            files,
+                                                            this.state.files.length
+                                                        );
+                                                    }
+                                                });
+                                            }}
+                                        >
+                                            <div>+</div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            )}
                         </Files>
 
                         {this.state.errors.length > 0 && <div>An error occurred.</div>}
