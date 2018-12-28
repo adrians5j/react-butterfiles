@@ -25,26 +25,29 @@ export type FileError = {
     file?: SelectedFile
 };
 
-export type RenderPropParams = {
-    browseFiles: BrowseFilesParams => void,
-    getDropZoneProps: (additionalProps: ?Object) => Object
-};
-
 export type BrowseFilesParams = {
     onSuccess?: (files: Array<SelectedFile>) => void,
     onError?: (errors: Array<FileError>, files: Array<SelectedFile>) => void
 };
 
-export type Props = {
+export type RenderPropParams = {
+    browseFiles: BrowseFilesParams => void,
+    getDropZoneProps: (additionalProps: ?Object) => Object
+};
+
+export type FilesRules = {
     accept: Array<string>,
     multiple: boolean,
     maxSize: string,
     multipleMaxSize: string,
     multipleMaxCount: ?number,
     convertToBase64: boolean,
-    children: RenderPropParams => React.Node,
     onSuccess?: (files: Array<SelectedFile>) => void,
     onError?: (errors: Array<FileError>, files: Array<SelectedFile>) => void
+};
+
+export type Props = FilesRules & {
+    children: RenderPropParams => React.Node
 };
 
 class Files extends React.Component<Props> {
@@ -167,8 +170,8 @@ class Files extends React.Component<Props> {
         } else {
             if (convertToBase64) {
                 for (let i = 0; i < files.length; i++) {
-                    const file = files[i];
-                    file.src.base64 = await readFileContent(file.src.file);
+                    const file: File = (files[i].src.file: any);
+                    files[i].src.base64 = await readFileContent(file);
                 }
             }
 

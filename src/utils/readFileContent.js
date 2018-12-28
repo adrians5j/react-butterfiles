@@ -1,5 +1,5 @@
 // @flow
-const readFileContent = async file => {
+const readFileContent = async (file: File) => {
     return new Promise(resolve => {
         const reader = new window.FileReader();
         reader.onload = function(e) {

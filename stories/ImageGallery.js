@@ -9,7 +9,7 @@ type Props = {};
 type State = {
     files: Array<*>,
     errors: Array<*>,
-    cropper: boolean
+    dragging: boolean
 };
 
 const gallery = css({
@@ -50,11 +50,11 @@ const gallery = css({
 class ImageGallery extends React.Component<Props, State> {
     state = {
         files: [],
-        errors: []
+        errors: [],
+        dragging: false
     };
 
     handleErrors = (errors: *) => {
-        console.log(errors);
         this.setState({ files: [], errors });
     };
 
@@ -93,10 +93,10 @@ class ImageGallery extends React.Component<Props, State> {
                             convertToBase64
                             accept={["image/jpg", "image/jpeg", "image/png"]}
                             onError={this.handleErrors}
-                            onSuccess={files =>
+                            onSuccess={files => {
                                 // Will append images at the end of the list.
-                                this.handleFiles(files, this.state.files.length)
-                            }
+                                this.handleFiles(files, this.state.files.length);
+                            }}
                         >
                             {({ browseFiles, getDropZoneProps }) => (
                                 <div
@@ -156,65 +156,68 @@ class ImageGallery extends React.Component<Props, State> {
     }
 }
 
-const code = () => /* React */ `
-<Files
-    accept={["image/jpg", "image/jpeg", "image/png"]}
-    convertToBase64
-    onSuccess={this.handleSuccess}
-    onError={this.handleErrors}
->
-    {({ browseFiles, getDropZoneProps }) => (
-        <>
-            <label>Avatar</label>
-            {this.state.cropper ? (
-                <div style={style}>
-                    <ImageCropper>
-                        {({ getImgProps, getDataURL }) => (
-                            <div>
-                                <img
-                                    {...getImgProps({
-                                        src: this.state.files[0].src.base64,
-                                        style: {
-                                            maxWidth: "100%"
-                                        }
-                                    })}
-                                />
-                                <button
-                                    onClick={() => {
-                                        this.setState(state => {
-                                            state.files[0].src.base64 = getDataURL();
-                                            state.cropper = false;
-                                            return state;
-                                        });
-                                    }}
-                                >
-                                    Save
-                                </button>
-                            </div>
-                        )}
-                    </ImageCropper>
-                </div>
-            ) : (
-                <div
-                    onClick={browseFiles}
-                    {...getDropZoneProps({
-                        style: { ...style, cursor: "pointer" }
-                    })}
-                >
-                    {this.state.files[0] && (
-                        <img
-                            style={{ width: "100%" }}
-                            src={this.state.files[0].src.base64}
-                        />
-                    )}
-                    {this.state.errors.length > 0 && (
-                        <div>An error occured.</div>
-                    )}
-                </div>
-            )}
-        </>
-    )}
-</Files>
+const code = () => `
+<div>
+    <Files
+        multiple
+        convertToBase64
+        accept={["image/jpg", "image/jpeg", "image/png"]}
+        onError={this.handleErrors}
+        onSuccess={files =>
+            // Will append images at the end of the list.
+            this.handleFiles(files, this.state.files.length)
+        }
+    >
+        {({ browseFiles, getDropZoneProps }) => (
+            <div
+                {...getDropZoneProps({
+                    className:
+                        gallery + (this.state.dragging ? " dragging" : ""),
+                    onDragEnter: () => this.setState({ dragging: true }),
+                    onDragLeave: () => this.setState({ dragging: false }),
+                    onDrop: () => this.setState({ dragging: false })
+                })}
+            >
+                <ul>
+                    {this.state.files.map((image, index) => (
+                        <li
+                            key={index}
+                            onClick={() => {
+                                browseFiles({
+                                    onErrors: this.handleErrors,
+                                    onSuccess: files => {
+                                        // Will insert images after the clicked image.
+                                        this.handleFiles(files, index + 1);
+                                    }
+                                });
+                            }}
+                        >
+                            <img src={image.src} />
+                        </li>
+                    ))}
+                    <li
+                        className="new-image"
+                        onClick={() => {
+                            browseFiles({
+                                onErrors: this.handleErrors,
+                                onSuccess: files => {
+                                    // Will append images at the end of the list.
+                                    this.handleFiles(
+                                        files,
+                                        this.state.files.length
+                                    );
+                                }
+                            });
+                        }}
+                    >
+                        <div>+</div>
+                    </li>
+                </ul>
+            </div>
+        )}
+    </Files>
+    {this.state.errors.length > 0 && <div>An error occurred.</div>}
+</div>
 `;
 
 export default ImageGallery;
