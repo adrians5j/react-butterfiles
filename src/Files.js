@@ -198,17 +198,19 @@ class Files extends React.Component<Props> {
                         // Opens the file browser.
                         this.input && this.input.click();
                     },
-                    getDropZoneProps: (props: Object) => {
+                    getDropZoneProps: (props: ?Object) => {
                         return {
                             ...props,
                             onDragOver: e => {
                                 e.preventDefault();
-                                typeof props.onDragOver === "function" && props.onDragOver();
+                                props &&
+                                    typeof props.onDragOver === "function" &&
+                                    props.onDragOver();
                             },
                             onDrop: async e => {
                                 e.preventDefault();
                                 await this.processSelectedFiles(e.dataTransfer.files);
-                                typeof props.onDrop === "function" && props.onDrop();
+                                props && typeof props.onDrop === "function" && props.onDrop();
                             }
                         };
                     }
