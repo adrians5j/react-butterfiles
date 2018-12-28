@@ -136,6 +136,10 @@ class Files extends React.Component<Props> {
     }
 
     processSelectedFiles = async (eventFiles: Array<File>) => {
+        if (eventFiles.length === 0) {
+            return;
+        }
+
         const { convertToBase64, onSuccess, onError } = this.props;
         const { browseFilesPassedParams } = this;
         const callbacks = {
