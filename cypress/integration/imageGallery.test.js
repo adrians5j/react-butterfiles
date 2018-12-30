@@ -6,7 +6,7 @@ context("Simple file upload test", () => {
             .dropFile("avatar1.jpeg", "image/jpeg")
             .dropFile("avatar2.jpeg", "image/jpeg")
             .find("ul > li")
-            .should(elements => expect(elements).to.have.length(113));
+            .should(elements => expect(elements).to.have.length(3));
 
         cy.get("#my-image-gallery")
             .dropFile("avatar2.jpeg", "invalid")
