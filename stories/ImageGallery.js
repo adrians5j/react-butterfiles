@@ -55,7 +55,7 @@ class ImageGallery extends React.Component<Props, State> {
     };
 
     handleErrors = (errors: *) => {
-        this.setState({ files: [], errors });
+        this.setState({ errors });
     };
 
     handleFiles = async (files: Array<SelectedFile>, selectedIndex: number = 0) => {
@@ -87,7 +87,7 @@ class ImageGallery extends React.Component<Props, State> {
                     image is clicked, images will be inserted after it.
                 </description>
                 <example>
-                    <div>
+                    <div id="wrapper">
                         <Files
                             multiple
                             convertToBase64
@@ -101,6 +101,7 @@ class ImageGallery extends React.Component<Props, State> {
                             {({ browseFiles, getDropZoneProps }) => (
                                 <div
                                     {...getDropZoneProps({
+                                        id: "my-image-gallery",
                                         className:
                                             gallery + (this.state.dragging ? " dragging" : ""),
                                         onDragEnter: () => this.setState({ dragging: true }),
