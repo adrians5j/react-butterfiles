@@ -1,4 +1,4 @@
-import generateId from "../generateId";
+import generateId from "react-butterfiles/utils/generateId";
 
 test("generateId must generate a random ID", async () => {
     const id1 = generateId();

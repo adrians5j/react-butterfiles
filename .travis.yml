@@ -12,9 +12,13 @@ notifications:
 
 jobs:
   include:
+    - stage: test
+      script:
+        - npm run test:cypress
+        - npm run test:jest:dist
     - stage: release
       node_js: lts/*
-      script: npm run test:ci
+      script: skip
       deploy:
         provider: script
         skip_cleanup: true

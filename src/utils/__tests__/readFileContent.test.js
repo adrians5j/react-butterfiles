@@ -1,4 +1,4 @@
-import readFileContent from "../readFileContent";
+import readFileContent from "react-butterfiles/utils/readFileContent";
 
 /**
  * Create an instance of File, out of a dataURL
