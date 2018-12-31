@@ -71,7 +71,7 @@
     "test:jest": "jest --config ./scripts/jest/config.src.js",
     "test:coverage": "yarn test --coverage",
     "test:cypress": "concurrently 'npm run storybook' 'wait-on http://localhost:6006 && npx cypress run' -k -s first",
-    "test:ci": "npm run test:cypress",
+    "test:ci": "npm run test:jest && npm run test:cypress",
     "release": "npm run build && npx semantic-release",
     "semantic-release": "semantic-release",
     "lint-staged": "lint-staged"
