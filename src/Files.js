@@ -195,31 +195,37 @@ class Files extends React.Component<Props> {
         return (
             <div>
                 {this.props.children({
-                    browseFiles: params => {
-                        this.browseFilesPassedParams = params;
-
-                        // Opens the file browser.
-                        this.input && this.input.click();
-                    },
                     getLabelProps: (props: ?Object) => {
                         return {
                             ...props,
                             htmlFor: id || this.id
                         };
                     },
-                    getDropZoneProps: (props: ?Object) => {
+                    browseFiles: ({ onSuccess, onError }: Object = {}) => {
+                        this.browseFilesPassedParams = { onSuccess, onError };
+
+                        // Opens the file browser.
+                        this.input && this.input.click();
+                    },
+                    getDropZoneProps: ({
+                        onSuccess,
+                        onError,
+                        onDragOver,
+                        onDrop,
+                        ...rest
+                    }: Object = {}) => {
+                        this.browseFilesPassedParams = { onSuccess, onError };
+
                         return {
-                            ...props,
+                            ...rest,
                             onDragOver: e => {
                                 e.preventDefault();
-                                props &&
-                                    typeof props.onDragOver === "function" &&
-                                    props.onDragOver();
+                                typeof onDragOver === "function" && onDragOver();
                             },
                             onDrop: async e => {
                                 e.preventDefault();
                                 await this.processSelectedFiles(e.dataTransfer.files);
-                                props && typeof props.onDrop === "function" && props.onDrop();
+                                typeof onDrop === "function" && onDrop();
                             }
                         };
                     }
