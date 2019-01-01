@@ -5,6 +5,7 @@ import readFileContent from "./utils/readFileContent";
 import generateId from "./utils/generateId";
 
 export type SelectedFile = {
+    id: string,
     name: string,
     type: string,
     size: number,
@@ -74,9 +75,6 @@ class Files extends React.Component<Props> {
 
     validateFiles(files: Array<SelectedFile>): Array<Object> {
         const { multiple, multipleMaxSize, multipleMaxCount, accept, maxSize } = this.props;
-        if (files.length === 0) {
-            return [];
-        }
 
         const errors: Array<FileError> = [];
         let multipleFileSize = 0;
@@ -161,6 +159,7 @@ class Files extends React.Component<Props> {
 
         const files: Array<SelectedFile> = [...eventFiles].map(file => {
             return {
+                id: generateId(),
                 name: file.name,
                 type: file.type,
                 size: file.size,
