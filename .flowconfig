@@ -1,5 +1,4 @@
 [ignore]
-.*/__tests__/.*
 .*/scripts/.*
 
 [include]
@@ -10,6 +9,7 @@
 [options]
 esproposal.class_static_fields=enable
 module.file_ext=.js
+module.name_mapper='^react-butterfiles/?\(.*\)$' -> '<PROJECT_ROOT>/src/\1'
 
 [strict]
 
