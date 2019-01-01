@@ -48,7 +48,8 @@ export type FilesRules = {
 };
 
 export type Props = FilesRules & {
-    children: RenderPropParams => React.Node
+    children: RenderPropParams => React.Node,
+    id?: string
 };
 
 class Files extends React.Component<Props> {
@@ -191,7 +192,7 @@ class Files extends React.Component<Props> {
     };
 
     render() {
-        const { multiple, accept } = this.props;
+        const { multiple, accept, id } = this.props;
         return (
             <div>
                 {this.props.children({
@@ -204,7 +205,7 @@ class Files extends React.Component<Props> {
                     getLabelProps: (props: ?Object) => {
                         return {
                             ...props,
-                            htmlFor: this.id
+                            htmlFor: id || this.id
                         };
                     },
                     getDropZoneProps: (props: ?Object) => {
@@ -225,7 +226,7 @@ class Files extends React.Component<Props> {
                     }
                 })}
                 <input
-                    id={this.id}
+                    id={id || this.id}
                     ref={ref => {
                         if (ref) {
                             this.input = ref;

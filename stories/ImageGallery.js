@@ -89,6 +89,7 @@ class ImageGallery extends React.Component<Props, State> {
                 <example>
                     <div id="wrapper">
                         <Files
+                            id={"image-gallery"}
                             multiple
                             convertToBase64
                             accept={["image/jpg", "image/jpeg", "image/png"]}
