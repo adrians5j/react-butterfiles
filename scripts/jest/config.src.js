@@ -8,5 +8,6 @@ moduleNameMapper["^react-butterfiles$"] = "<rootDir>src";
 
 module.exports = Object.assign({}, baseConfig, {
     moduleNameMapper,
-    coverageReporters: ["lcov", "html"]
+    coverageReporters: ["lcov", "html"],
+    coveragePathIgnorePatterns: ["__tests__", "/node_modules/"]
 });
