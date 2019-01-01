@@ -190,6 +190,24 @@ class Files extends React.Component<Props> {
         this.browseFilesPassedParams = null;
     };
 
+    /**
+     * Extracted into a separate method just for testing purposes.
+     */
+    onDropFilesHandler = async ({ e, onSuccess, onError }: Object) => {
+        this.browseFilesPassedParams = { onSuccess, onError };
+        e.dataTransfer &&
+            e.dataTransfer.files &&
+            (await this.processSelectedFiles(e.dataTransfer.files));
+    };
+
+    /**
+     * Extracted into a separate method just for testing purposes.
+     */
+    browseFilesHandler = ({ onSuccess, onError }: Object) => {
+        this.browseFilesPassedParams = { onSuccess, onError };
+        this.input && this.input.click();
+    };
+
     render() {
         const { multiple, accept, id } = this.props;
         return (
@@ -201,11 +219,8 @@ class Files extends React.Component<Props> {
                             htmlFor: id || this.id
                         };
                     },
-                    browseFiles: ({ onSuccess, onError }: Object = {}) => {
-                        this.browseFilesPassedParams = { onSuccess, onError };
-
-                        // Opens the file browser.
-                        this.input && this.input.click();
+                    browseFiles: ({ onSuccess, onError }: BrowseFilesParams = {}) => {
+                        this.browseFilesHandler({ onSuccess, onError });
                     },
                     getDropZoneProps: ({
                         onSuccess,
@@ -214,8 +229,6 @@ class Files extends React.Component<Props> {
                         onDrop,
                         ...rest
                     }: Object = {}) => {
-                        this.browseFilesPassedParams = { onSuccess, onError };
-
                         return {
                             ...rest,
                             onDragOver: e => {
@@ -224,12 +237,13 @@ class Files extends React.Component<Props> {
                             },
                             onDrop: async e => {
                                 e.preventDefault();
-                                await this.processSelectedFiles(e.dataTransfer.files);
                                 typeof onDrop === "function" && onDrop();
+                                this.onDropFilesHandler({ e, onSuccess, onError });
                             }
                         };
                     }
                 })}
+
                 <input
                     id={id || this.id}
                     ref={ref => {
