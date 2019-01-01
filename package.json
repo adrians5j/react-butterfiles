@@ -2,7 +2,7 @@
   "name": "react-butterfiles",
   "version": "0.0.0-development",
   "description": "A component for building file upload fields of any type.",
-  "main": "dist/Files.js",
+  "main": "dist/index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/doitadrian/react-butterfiles.git"

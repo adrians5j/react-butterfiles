@@ -32,7 +32,8 @@ export type BrowseFilesParams = {
 
 export type RenderPropParams = {
     browseFiles: BrowseFilesParams => void,
-    getDropZoneProps: (additionalProps: ?Object) => Object
+    getDropZoneProps: (additionalProps: ?Object) => Object,
+    getLabelProps: (additionalProps: ?Object) => Object
 };
 
 export type FilesRules = {
@@ -62,10 +63,12 @@ class Files extends React.Component<Props> {
 
     input: any;
     browseFilesPassedParams: ?BrowseFilesParams;
+    id: string;
     constructor() {
         super();
         this.input = null;
         this.browseFilesPassedParams = null;
+        this.id = generateId();
     }
 
     validateFiles(files: Array<SelectedFile>): Array<Object> {
@@ -198,6 +201,12 @@ class Files extends React.Component<Props> {
                         // Opens the file browser.
                         this.input && this.input.click();
                     },
+                    getLabelProps: (props: ?Object) => {
+                        return {
+                            ...props,
+                            htmlFor: this.id
+                        };
+                    },
                     getDropZoneProps: (props: ?Object) => {
                         return {
                             ...props,
@@ -216,6 +225,7 @@ class Files extends React.Component<Props> {
                     }
                 })}
                 <input
+                    id={this.id}
                     ref={ref => {
                         if (ref) {
                             this.input = ref;
