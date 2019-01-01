@@ -24,4 +24,3 @@ jobs:
         skip_cleanup: true
         script:
           - npm run release
-          - test:jest:src:coverage && codecov
