@@ -18,7 +18,9 @@ jobs:
         - npm run test:jest:dist
     - stage: release
       node_js: lts/*
-      script: npm run test:jest:src:coverage:coveralls
+      script:
+        - npm run test:jest:src:coverage:coveralls
+        - npm run build
       deploy:
         provider: script
         skip_cleanup: true

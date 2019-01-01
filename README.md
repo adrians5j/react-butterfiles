@@ -5,10 +5,13 @@
     <img alt="Build Status" src="https://travis-ci.org/doitadrian/react-butterfiles.svg?branch=master">
   </a>
   
+  <a href='https://coveralls.io/github/doitadrian/react-butterfiles?branch=master'>
+    <img src='https://coveralls.io/repos/github/doitadrian/react-butterfiles/badge.svg?branch=master' alt='Coverage Status' />
+  </a>
+  
   <img alt="Build Status" src="https://img.shields.io/npm/dw/react-butterfiles.svg">
   <img alt="Build Status" src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square">  
   <img alt="Build Status" src="https://img.shields.io/npm/types/react-butterfiles.svg">
-    
 </p>
 
 A small component for building file upload fields of any type, for example a simple file upload button or 
