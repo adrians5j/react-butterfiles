@@ -84,7 +84,7 @@ More examples on https://react-butterfiles.netlify.com.
 
 ### Render (children) prop
 
-Render prop gives you access to two callbacks:
+Render prop gives you access to three callbacks:
 
 | Prop                | Type                                    |  Description                      |
 | :------------------ | :-------------------------------------- | :----------------------------------
