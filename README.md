@@ -1,6 +1,4 @@
 # 🦋 react-butterfiles
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors)
-
 <p align="center">
   <a href="https://travis-ci.org/doitadrian/react-butterfiles.svg?branch=master">
     <img alt="Build Status" src="https://travis-ci.org/doitadrian/react-butterfiles.svg?branch=master">
@@ -13,6 +11,8 @@
   <img alt="Build Status" src="https://img.shields.io/npm/dw/react-butterfiles.svg">
   <img alt="Build Status" src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square">  
   <img alt="Build Status" src="https://img.shields.io/npm/types/react-butterfiles.svg">
+  
+  [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors)
 </p>
 
 A small component for building file upload fields of any type, for example a simple file upload button or 
