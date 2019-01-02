@@ -69,13 +69,13 @@
     "build": "babel src --out-dir dist --source-maps --ignore **/*.test.js",
     "postbuild": "npm run flow-copy-source",
     "flow-copy-source": "flow-copy-source src dist --ignore **/*.test.js",
+    "test": "npm run test:jest:src",
     "test:jest:src": "npx jest --config ./scripts/jest/config.src.js",
     "test:jest:src:coverage": "npx jest --config ./scripts/jest/config.src.js --coverage --collectCoverageFrom=src/**/*.js",
     "test:jest:src:coverage:coveralls": "npm run test:jest:src:coverage && cat ./coverage/lcov.info | coveralls",
     "test:jest:dist": "npm run build && jest --config ./scripts/jest/config.dist.js --colors",
     "test:cypress": "concurrently 'npm run storybook' 'wait-on http://localhost:6006 && npx cypress run' -k -s first",
     "release": "npx semantic-release",
-    "semantic-release": "semantic-release",
     "lint-staged": "lint-staged"
   },
   "pre-commit": [
