@@ -1,4 +1,5 @@
 # 🦋 react-butterfiles
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors)
 
 <p align="center">
   <a href="https://travis-ci.org/doitadrian/react-butterfiles.svg?branch=master">
@@ -107,3 +108,15 @@ Every error in the array will have one of the following error types.
 | `multipleMaxCountExceeded`            | User selected more files than allowed (more than `multipleMaxCount`).
 | `multipleMaxSizeExceeded` | User selected one or more files with their total size greater than allowed (more than `multipleMaxSize`).
 | `multipleNotAllowed`         | This can only happen via drag and drop since file browser dialog won't let users select two or more files if `multiple` was not set to `true`.
+
+## Contributors
+
+Thanks goes to these wonderful people ([emoji key](https://github.com/kentcdodds/all-contributors#emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore -->
+| [<img src="https://avatars0.githubusercontent.com/u/5121148?v=4" width="100px;"/><br /><sub><b>Adrian Smijulj</b></sub>](https://github.com/doitadrian)<br />[💻](https://github.com/doitadrian/react-butterfiles/commits?author=doitadrian "Code") [📖](https://github.com/doitadrian/react-butterfiles/commits?author=doitadrian "Documentation") [💡](#example-doitadrian "Examples") [👀](#review-doitadrian "Reviewed Pull Requests") [⚠️](https://github.com/doitadrian/react-butterfiles/commits?author=doitadrian "Tests") |
+| :---: |
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/kentcdodds/all-contributors) specification. Contributions of any kind welcome!

@@ -1,0 +1,26 @@
+{
+  "projectName": "react-butterfiles",
+  "projectOwner": "doitadrian",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "doitadrian",
+      "name": "Adrian Smijulj",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/5121148?v=4",
+      "profile": "https://github.com/doitadrian",
+      "contributions": [
+        "code",
+        "doc",
+        "example",
+        "review",
+        "test"
+      ]
+    }
+  ]
+}
