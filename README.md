@@ -42,8 +42,9 @@ import Files from "react-butterfiles";
     onSuccess={files => this.setState({ files })}
     onError={errors => this.setState({ errors })}
 >
-    {({ browseFiles, getDropZoneProps }) => (
+    {({ browseFiles, getDropZoneProps, getLabelProps }) => (
         <>
+            <label {...getLabelProps()}>Your files</label>
             <div {...getDropZoneProps({ className: "myDropZone" })}/>
             <button onClick={browseFiles}>Select files...</button>
             <ol>
@@ -67,7 +68,7 @@ More examples on https://react-butterfiles.netlify.com.
 
 | Prop                | Type                                    | Default   | Description                                                                                                           |
 | :------------------ | :-------------------------------------- | :-------- | :-------------------------------------------------------------------------------------------------------------------- |
-| `accept`              | `array`                                   | `[]`        | Defines which file types will be accepted. Example: `["application/pdf"]`.                                            |
+| `accept`              | `Array<string>`                                   | `[]`        | Defines which file types will be accepted. Example: `["application/pdf"]`.                                            |
 | `multiple`            | `boolean`                                 | `false`     | Allow multiple file selection by setting this prop to `true.                                                          |
 | `maxFileSize`         | `string`                                  | `"2mb"`     | Defines maximum file size (bytes lib used behind the scenes). Example: `"10mb"`                                       |
 | `multipleMaxSize`     | `string`                                  | `"10mb"`    | Useful only if `multiple` prop is set to `true`. Defines max. file size of all selected files.                      |
