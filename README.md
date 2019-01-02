@@ -79,8 +79,8 @@ More examples on https://react-butterfiles.netlify.com.
 | `multipleMaxSize`     | `string`                                  | `"10mb"`    | Useful only if `multiple` prop is set to `true`. Defines max. file size of all selected files.                      |
 | `multipleMaxCount`    | `number`                                  | `null`    | Useful only if `multiple` prop is set to `true`. Defines max. allowed selected files.                    |
 | `convertToBase64`     | `boolean`                                 | `false`     | If `true`, selected files will also be converted to baser64 format (useful when working with images / thumbnails).    |
-| `onSuccess`           | `(files: Array<SelectedFile>) => void` | `undefined` | Callback that will get executed once a valid file selection has been made (via browse files dialog or drag and drop). |
-| `onError`             | `(errors: Array<FileError>) => void`      | `undefined` | Callback that will get executed once an invalid file selection has been made. More info about possible errors below.  |
+| `onSuccess`           | `(files: Array<SelectedFile>) => void` | `undefined` | Callback that will get executed once a valid file selection has been made (via browse files dialog or drag and drop). Each file will have a random `id` assigned to it. |
+| `onError`             | `(errors: Array<FileError>) => void`      | `undefined` | Callback that will get executed once an invalid file selection has been made. Each error will have a random `id` assigned to it. More info about possible errors below.  |
 
 ### Render (children) prop
 
@@ -89,13 +89,14 @@ Render prop gives you access to two callbacks:
 | Prop                | Type                                    |  Description                      |
 | :------------------ | :-------------------------------------- | :----------------------------------
 | `browseFiles`       | `BrowseFilesParams => void`             | Once executed, file browser will be shown. Useful for file upload buttons. The callback can also accept custom `onSuccess` and `onError` callbacks, that will override the main ones. |
-| `getDropZoneProps`  | `(additionalProps: ?Object) => Object`  | Props that need to be spread to a drop zone. You can add additional props if needed, for example `className` or `style`. |
+| `getDropZoneProps`  | `(additionalProps: ?Object) => Object`  | Props that need to be spread to a drop zone. Additional props can be passed, for example `className` or `style`. |
+| `getLabelProps`  | `(additionalProps: ?Object) => Object`  | Props that need to be spread to your file field's label. Additional props can be passed, for example `className` or `style`. |
 
-Note that you don't need to use both callbacks, you can use only one if that's your requirement. 
+Note that you don't need to have both upload file and drop zone, you can use only one if that's your requirement. 
 For example, to create a simple file field, you would only need to use the `browseFiles` callback.
 
 ## Selection error types
-While selecting and droping files, if there are one or more that do not comply with the rules that were set via props, an `onError` callback will be triggered, with all of the errors passed as the first argument.
+While selecting and dropping files, if there are one or more that do not comply with the rules that were set via props, an `onError` callback will be triggered, with all of the errors passed as the first argument.
 
 Every error in the array will have one of the following error types.
 
