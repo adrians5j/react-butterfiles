@@ -12,6 +12,15 @@
   "bugs": {
     "url": "https://github.com/doitadrian/react-butterfiles/issues"
   },
+  "keywords": [
+    "react",
+    "files",
+    "drag and drop",
+    "file field",
+    "dropzone",
+    "images",
+    "image gallery"
+  ],
   "homepage": "https://github.com/doitadrian/react-butterfiles#readme",
   "devDependencies": {
     "@babel/cli": "^7.2.3",
