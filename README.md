@@ -84,6 +84,7 @@ Render prop gives you access to three callbacks:
 | Prop                | Type                                    |  Description                      |
 | :------------------ | :-------------------------------------- | :----------------------------------
 | `browseFiles`       | `BrowseFilesParams => void`             | Once executed, file browser will be shown. Useful for file upload buttons. The callback can also accept custom `onSuccess` and `onError` callbacks, that will override the main ones. |
+| `validate`       | `(files: Array<SelectedFile>) => void`             | Enables manual validation of files. Eg. after editing the selected image in an image editor. |
 | `getDropZoneProps`  | `(additionalProps: ?Object) => Object`  | Props that need to be spread to a drop zone. Additional props can be passed, for example `className` or `style`. |
 | `getLabelProps`  | `(additionalProps: ?Object) => Object`  | Props that need to be spread to your file field's label. Additional props can be passed, for example `className` or `style`. |
 
