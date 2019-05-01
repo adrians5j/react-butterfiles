@@ -73,7 +73,7 @@ class Files extends React.Component<Props> {
         this.id = generateId();
     }
 
-    validateFiles(files: Array<SelectedFile> | Array<File>): Array<FileError> {
+    validateFiles = (files: Array<SelectedFile> | Array<File>): Array<FileError> => {
         const { multiple, multipleMaxSize, multipleMaxCount, accept, maxSize } = this.props;
 
         const errors: Array<FileError> = [];
@@ -135,7 +135,7 @@ class Files extends React.Component<Props> {
         }
 
         return errors;
-    }
+    };
 
     processSelectedFiles = async (eventFiles: Array<File>) => {
         if (eventFiles.length === 0) {
