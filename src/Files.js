@@ -23,7 +23,7 @@ export type FileError = {
         | "multipleMaxSizeExceeded"
         | "multipleMaxCountExceeded"
         | "multipleNotAllowed",
-    file?: SelectedFile
+    file?: SelectedFile | File
 };
 
 export type BrowseFilesParams = {
@@ -73,7 +73,7 @@ class Files extends React.Component<Props> {
         this.id = generateId();
     }
 
-    validateFiles(files: Array<SelectedFile>): Array<Object> {
+    validateFiles(files: Array<SelectedFile> | Array<File>): Array<FileError> {
         const { multiple, multipleMaxSize, multipleMaxCount, accept, maxSize } = this.props;
 
         const errors: Array<FileError> = [];
