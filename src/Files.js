@@ -219,7 +219,7 @@ class Files extends React.Component<Props> {
                             htmlFor: id || this.id
                         };
                     },
-                    validate: this.validateFiles,
+                    validateFiles: this.validateFiles,
                     browseFiles: ({ onSuccess, onError }: BrowseFilesParams = {}) => {
                         this.browseFilesHandler({ onSuccess, onError });
                     },
