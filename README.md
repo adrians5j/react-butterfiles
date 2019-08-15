@@ -70,7 +70,7 @@ More examples on https://react-butterfiles.netlify.com.
 | :------------------ | :-------------------------------------- | :-------- | :-------------------------------------------------------------------------------------------------------------------- |
 | `accept`              | `Array<string>`                                   | `[]`        | Defines which file types will be accepted. Example: `["application/pdf"]`.                                            |
 | `multiple`            | `boolean`                                 | `false`     | Allow multiple file selection by setting this prop to `true.                                                          |
-| `maxFileSize`         | `string`                                  | `"2mb"`     | Defines maximum file size (bytes lib used behind the scenes). Example: `"10mb"`                                       |
+| `maxSize`         | `string`                                  | `"2mb"`     | Defines maximum file size (bytes lib used behind the scenes). Example: `"10mb"`                                       |
 | `multipleMaxSize`     | `string`                                  | `"10mb"`    | Useful only if `multiple` prop is set to `true`. Defines max. file size of all selected files.                      |
 | `multipleMaxCount`    | `number`                                  | `null`    | Useful only if `multiple` prop is set to `true`. Defines max. allowed selected files.                    |
 | `convertToBase64`     | `boolean`                                 | `false`     | If `true`, selected files will also be converted to baser64 format (useful when working with images / thumbnails).    |
@@ -99,7 +99,7 @@ Every error in the array will have one of the following error types.
 | Type                | Description
 | :------------------ | :-------------------
 | `unsupportedFileType`              | This can only happen via drag and drop since file browser dialog won't let users choose files of invalid type.
-| `maxSizeExceeded`            | One or more file sizes are greater than `maxFileSize` value.
+| `maxSizeExceeded`            | One or more file sizes are greater than `maxSize` value.
 | `multipleMaxCountExceeded`            | User selected more files than allowed (more than `multipleMaxCount`).
 | `multipleMaxSizeExceeded` | User selected one or more files with their total size greater than allowed (more than `multipleMaxSize`).
 | `multipleNotAllowed`         | This can only happen via drag and drop since file browser dialog won't let users select two or more files if `multiple` was not set to `true`.
