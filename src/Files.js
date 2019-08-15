@@ -211,7 +211,7 @@ class Files extends React.Component<Props> {
     render() {
         const { multiple, accept, id } = this.props;
         return (
-            <div>
+            <React.Fragment>
                 {this.props.children({
                     getLabelProps: (props: ?Object) => {
                         return {
@@ -258,7 +258,7 @@ class Files extends React.Component<Props> {
                     multiple={multiple}
                     onChange={e => this.processSelectedFiles(e.target.files)}
                 />
-            </div>
+            </React.Fragment>
         );
     }
 }
