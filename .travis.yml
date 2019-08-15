@@ -10,6 +10,11 @@ cache:
 notifications:
   email: false
 
+addons:
+  apt:
+    packages:
+      - libgconf-2-4
+
 jobs:
   include:
     - stage: test
