@@ -99,7 +99,7 @@ Every error in the array will have one of the following error types.
 | Type                | Description
 | :------------------ | :-------------------
 | `unsupportedFileType`              | This can only happen via drag and drop since file browser dialog won't let users choose files of invalid type.
-| `maxSizeExceeded`            | One or more file sizes are greater than `maxFileSize` value.
+| `maxSizeExceeded`            | One or more file sizes are greater than `maxSize` value.
 | `multipleMaxCountExceeded`            | User selected more files than allowed (more than `multipleMaxCount`).
 | `multipleMaxSizeExceeded` | User selected one or more files with their total size greater than allowed (more than `multipleMaxSize`).
 | `multipleNotAllowed`         | This can only happen via drag and drop since file browser dialog won't let users select two or more files if `multiple` was not set to `true`.
