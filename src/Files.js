@@ -234,11 +234,11 @@ class Files extends React.Component<Props> {
                             ...rest,
                             onDragOver: e => {
                                 e.preventDefault();
-                                typeof onDragOver === "function" && onDragOver();
+                                typeof onDragOver === "function" && onDragOver(e);
                             },
                             onDrop: async e => {
                                 e.preventDefault();
-                                typeof onDrop === "function" && onDrop();
+                                typeof onDrop === "function" && onDrop(e);
                                 this.onDropFilesHandler({ e, onSuccess, onError });
                             }
                         };
